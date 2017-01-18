@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import 'devbridge-autocomplete';
 import numeral from 'numeral';
+import moment from 'moment';
 import 'bootstrap';
 import 'bootstrap-toggle';
 import {customElement,bindable,customAttribute} from 'aurelia-templating';
@@ -462,6 +463,53 @@ export class CurrencyInput {
     this.displayValue = oldValue;
     this.value = oldValue;
   }
+}
+import '@fengyuanchen/datepicker';
+
+@customElement('date-picker')
+@bindable('label')
+@bindable({
+  name:'dateValue',
+  attribute:'date-value',
+  defaultBindingMode: bindingMode.twoWay
+})
+@bindable({
+  name: 'textCol',
+  attributeName: 'text-col',
+  defaultValue: '',
+  defaultBindingMode: bindingMode.oneTime
+})
+@bindable({
+  name: 'labelCol',
+  attributeName: 'label-col',
+  defaultValue: '',
+  defaultBindingMode: bindingMode.oneTime
+})
+@inject(Element)
+export class DatePickerWidget {
+  
+  constructor(element) {
+    this.element = element;
+  }
+
+  bind() {
+    this.inputElement = this.element.querySelector('input');
+  }
+
+  attached() {
+    
+    $(this.inputElement).datepicker({
+      format: 'dd/mm/yyyy',
+      autoHide: true
+    }).on('pick.datepicker', function(e) {
+       this.dateValue = moment(e.date).format('DD/MM/YYYY');
+    });
+  }
+
+  unbind() {
+   
+  }
+  
 }
 @inject(EventAggregator)
 @customElement('radio-button')

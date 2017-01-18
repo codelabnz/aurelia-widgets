@@ -1,0 +1,46 @@
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class;
+
+import { customElement, bindable } from 'aurelia-templating';
+import { bindingMode } from 'aurelia-binding';
+import { inject } from 'aurelia-dependency-injection';
+import $ from 'jquery';
+import moment from 'moment';
+import '@fengyuanchen/datepicker';
+
+export let DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bindable('label'), _dec3 = bindable({
+  name: 'dateValue',
+  attribute: 'date-value',
+  defaultBindingMode: bindingMode.twoWay
+}), _dec4 = bindable({
+  name: 'textCol',
+  attributeName: 'text-col',
+  defaultValue: '',
+  defaultBindingMode: bindingMode.oneTime
+}), _dec5 = bindable({
+  name: 'labelCol',
+  attributeName: 'label-col',
+  defaultValue: '',
+  defaultBindingMode: bindingMode.oneTime
+}), _dec6 = inject(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = class DatePickerWidget {
+
+  constructor(element) {
+    this.element = element;
+  }
+
+  bind() {
+    this.inputElement = this.element.querySelector('input');
+  }
+
+  attached() {
+
+    $(this.inputElement).datepicker({
+      format: 'dd/mm/yyyy',
+      autoHide: true
+    }).on('pick.datepicker', function (e) {
+      this.dateValue = moment(e.date).format('DD/MM/YYYY');
+    });
+  }
+
+  unbind() {}
+
+}) || _class) || _class) || _class) || _class) || _class) || _class);
