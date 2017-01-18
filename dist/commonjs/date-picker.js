@@ -53,13 +53,18 @@ var DatePickerWidget = exports.DatePickerWidget = (_dec = (0, _aureliaTemplating
   };
 
   DatePickerWidget.prototype.attached = function attached() {
+    var self = this;
 
     (0, _jquery2.default)(this.inputElement).datepicker({
       format: 'dd/mm/yyyy',
       autoHide: true
     }).on('pick.datepicker', function (e) {
-      this.dateValue = (0, _moment2.default)(e.date).format('DD/MM/YYYY');
+      self.dateValue = (0, _moment2.default)(e.date).format('DD/MM/YYYY');
     });
+
+    if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
+      self.dateValue = (0, _moment2.default)().format('DD/MM/YYYY');
+    }
   };
 
   DatePickerWidget.prototype.unbind = function unbind() {};

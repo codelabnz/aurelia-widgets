@@ -51,13 +51,18 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         };
 
         DatePickerWidget.prototype.attached = function attached() {
+          var self = this;
 
           $(this.inputElement).datepicker({
             format: 'dd/mm/yyyy',
             autoHide: true
           }).on('pick.datepicker', function (e) {
-            this.dateValue = moment(e.date).format('DD/MM/YYYY');
+            self.dateValue = moment(e.date).format('DD/MM/YYYY');
           });
+
+          if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
+            self.dateValue = moment().format('DD/MM/YYYY');
+          }
         };
 
         DatePickerWidget.prototype.unbind = function unbind() {};
