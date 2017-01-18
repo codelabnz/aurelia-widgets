@@ -494,16 +494,22 @@ export class DatePickerWidget {
 
   bind() {
     this.inputElement = this.element.querySelector('input');
+
   }
 
   attached() {
-    
+    var self = this;
+
     $(this.inputElement).datepicker({
       format: 'dd/mm/yyyy',
       autoHide: true
     }).on('pick.datepicker', function(e) {
-       this.dateValue = moment(e.date).format('DD/MM/YYYY');
+       self.dateValue = moment(e.date).format('DD/MM/YYYY');
     });
+
+    if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
+      self.dateValue = moment().format('DD/MM/YYYY');
+    }
   }
 
   unbind() {
