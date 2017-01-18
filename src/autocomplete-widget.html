@@ -1,7 +1,7 @@
 <template>
 	<div class="form-group" if.bind="textCol === '' && labelCol === ''">
 		<label class="control-label">${title}</label>
-		<input class="form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+		<input class="nocol form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 	</div>
 	<div class="form-group" if.bind="textCol !== '' && labelCol !== ''">
@@ -9,7 +9,7 @@
 			<label class="control-label">${title}</label>
 		</div>
 		<div class="${textCol}">
-			<input class="form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+			<input class="col form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            		focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 		</div>
 	</div>

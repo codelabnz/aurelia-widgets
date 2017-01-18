@@ -122,7 +122,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
       this.showingSuggestions = false;
     }
 
-    AutoCompleteWidget.prototype.bind = function bind() {
+    AutoCompleteWidget.prototype.attached = function attached() {
       this.input = this.element.querySelector('input');
       this.apply();
     };

@@ -74,7 +74,7 @@ export class AutoCompleteWidget {
     this.showingSuggestions = false;
   }
 
-  bind() {
+  attached() {
     this.input = this.element.querySelector('input');
     this.apply();
   }

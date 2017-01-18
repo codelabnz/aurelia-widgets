@@ -123,7 +123,7 @@ var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDepend
     this.showingSuggestions = false;
   }
 
-  AutoCompleteWidget.prototype.bind = function bind() {
+  AutoCompleteWidget.prototype.attached = function attached() {
     this.input = this.element.querySelector('input');
     this.apply();
   };

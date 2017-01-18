@@ -105,7 +105,7 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
     this.showingSuggestions = false;
   }
 
-  bind() {
+  attached() {
     this.input = this.element.querySelector('input');
     this.apply();
   }
