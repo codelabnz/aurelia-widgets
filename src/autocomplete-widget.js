@@ -53,6 +53,18 @@ import 'devbridge-autocomplete';
   attribute: 'grab-focus',
   defaultValue: false
 })
+@bindable({
+  name: 'labelCol',
+  attribute: 'label-col',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: ''
+})
+@bindable({
+  name: 'textCol',
+  attribute: 'text-col',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: ''
+})
 export class AutoCompleteWidget {
 
   @bindable onchange;
