@@ -3,7 +3,7 @@
 System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'devbridge-autocomplete'], function (_export, _context) {
   "use strict";
 
-  var customElement, bindable, bindingMode, computedFrom, inject, $, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _class, _desc, _value, _class2, _descriptor, AutoCompleteWidget;
+  var customElement, bindable, bindingMode, computedFrom, inject, $, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _class, _desc, _value, _class2, _descriptor, AutoCompleteWidget;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -104,7 +104,17 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         name: 'grabFocus',
         attribute: 'grab-focus',
         defaultValue: false
-      }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = (_class2 = function () {
+      }), _dec13 = bindable({
+        name: 'labelCol',
+        attribute: 'label-col',
+        defaultBindingMode: bindingMode.oneTime,
+        defaultValue: ''
+      }), _dec14 = bindable({
+        name: 'textCol',
+        attribute: 'text-col',
+        defaultBindingMode: bindingMode.oneTime,
+        defaultValue: ''
+      }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = (_class2 = function () {
         function AutoCompleteWidget(element) {
           _classCallCheck(this, AutoCompleteWidget);
 
@@ -232,7 +242,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
       }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [bindable], {
         enumerable: true,
         initializer: null
-      })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
+      })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
 
       _export('AutoCompleteWidget', AutoCompleteWidget);
     }
