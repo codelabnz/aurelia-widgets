@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _class, _desc, _value, _class2, _descriptor;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class, _desc, _value, _class2, _descriptor;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -77,26 +77,26 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
   attribute: 'custom-css',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec9 = bindable('title'), _dec10 = bindable('onenterpressed'), _dec11 = bindable({
+}), _dec9 = bindable('title'), _dec10 = bindable('onenterpressed'), _dec11 = bindable('onblur'), _dec12 = bindable({
   name: 'autoSelectFirstResult',
   attribute: 'auto-select-first',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: true
-}), _dec12 = bindable({
+}), _dec13 = bindable({
   name: 'grabFocus',
   attribute: 'grab-focus',
   defaultValue: false
-}), _dec13 = bindable({
+}), _dec14 = bindable({
   name: 'labelCol',
   attribute: 'label-col',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec14 = bindable({
+}), _dec15 = bindable({
   name: 'textCol',
   attribute: 'text-col',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = (_class2 = class AutoCompleteWidget {
+}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = (_class2 = class AutoCompleteWidget {
 
   constructor(element) {
     _initDefineProp(this, 'onchange', _descriptor, this);
@@ -194,6 +194,7 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
     if (this.selectedItem == null) {
       this.input.value = '';
     }
+    this.onblur();
   }
 
   _formatSelectionValue(selection) {
@@ -217,4 +218,4 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [bindable], {
   enumerable: true,
   initializer: null
-})), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
+})), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);

@@ -48,6 +48,7 @@ import {VelocityAnimator} from 'aurelia-animator-velocity';
 })
 @bindable('title')
 @bindable('onenterpressed')
+@bindable('onblur')
 @bindable({
   name: 'autoSelectFirstResult',
   attribute: 'auto-select-first',
@@ -177,6 +178,7 @@ export class AutoCompleteWidget {
     if (this.selectedItem == null) {
       this.input.value = '';
     }
+    this.onblur();
   }
 
   _formatSelectionValue(selection) {
