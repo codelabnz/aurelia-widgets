@@ -172,7 +172,9 @@ export class AutoCompleteWidget {
     if (this.selectedItem == null) {
       this.input.value = '';
     }
-    this.onblur();
+
+    if (this.onblur)
+      this.onblur();
   }
 
   _formatSelectionValue(selection) {

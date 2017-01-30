@@ -194,7 +194,8 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
     if (this.selectedItem == null) {
       this.input.value = '';
     }
-    this.onblur();
+
+    if (this.onblur) this.onblur();
   }
 
   _formatSelectionValue(selection) {

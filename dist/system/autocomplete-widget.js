@@ -217,7 +217,8 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
           if (this.selectedItem == null) {
             this.input.value = '';
           }
-          this.onblur();
+
+          if (this.onblur) this.onblur();
         };
 
         AutoCompleteWidget.prototype._formatSelectionValue = function _formatSelectionValue(selection) {

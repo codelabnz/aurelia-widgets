@@ -215,7 +215,8 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
       if (this.selectedItem == null) {
         this.input.value = '';
       }
-      this.onblur();
+
+      if (this.onblur) this.onblur();
     };
 
     AutoCompleteWidget.prototype._formatSelectionValue = function _formatSelectionValue(selection) {

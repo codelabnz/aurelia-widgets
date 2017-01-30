@@ -216,7 +216,8 @@ var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDepend
     if (this.selectedItem == null) {
       this.input.value = '';
     }
-    this.onblur();
+
+    if (this.onblur) this.onblur();
   };
 
   AutoCompleteWidget.prototype._formatSelectionValue = function _formatSelectionValue(selection) {
