@@ -13,4 +13,8 @@
            		focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 		</div>
 	</div>
+
+	<input if.bind="noform" class="col ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+       focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
+		
 </template>

@@ -61,6 +61,12 @@ import 'devbridge-autocomplete';
   defaultValue: ''
 })
 @bindable({
+  name: 'noform',
+  attribute: 'no-form',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: false
+})
+@bindable({
   name: 'textCol',
   attribute: 'text-col',
   defaultBindingMode: bindingMode.oneTime,
@@ -118,6 +124,7 @@ export class AutoCompleteWidget {
       $(this.input).data('autocomplete').suggestions = [ this.controller.createSuggestion(newValue) ];
       $(this.input).data('autocomplete').onSelect(0);
     }
+    
   }
 
   lookup(query, done) {
@@ -173,8 +180,9 @@ export class AutoCompleteWidget {
       this.input.value = '';
     }
 
-    if (this.onblur)
+    if (this.onblur && !this.showingSuggestions) {
       this.onblur();
+    }
   }
 
   _formatSelectionValue(selection) {

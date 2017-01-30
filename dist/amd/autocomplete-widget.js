@@ -63,7 +63,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class, _desc, _value, _class2, _descriptor;
+  var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class, _desc, _value, _class2, _descriptor;
 
   var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDependencyInjection.inject)(Element), _dec2 = (0, _aureliaTemplating.customElement)('autocomplete-widget'), _dec3 = (0, _aureliaTemplating.bindable)({
     name: 'size',
@@ -108,11 +108,16 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
     defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
     defaultValue: ''
   }), _dec15 = (0, _aureliaTemplating.bindable)({
+    name: 'noform',
+    attribute: 'no-form',
+    defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+    defaultValue: false
+  }), _dec16 = (0, _aureliaTemplating.bindable)({
     name: 'textCol',
     attribute: 'text-col',
     defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
     defaultValue: ''
-  }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = (_class2 = function () {
+  }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = (_class2 = function () {
     function AutoCompleteWidget(element) {
       _classCallCheck(this, AutoCompleteWidget);
 
@@ -216,7 +221,9 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
         this.input.value = '';
       }
 
-      if (this.onblur) this.onblur();
+      if (this.onblur && !this.showingSuggestions) {
+        this.onblur();
+      }
     };
 
     AutoCompleteWidget.prototype._formatSelectionValue = function _formatSelectionValue(selection) {
@@ -242,5 +249,5 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
   }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [_aureliaTemplating.bindable], {
     enumerable: true,
     initializer: null
-  })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
+  })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
 });
