@@ -3,7 +3,7 @@
 System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'devbridge-autocomplete'], function (_export, _context) {
   "use strict";
 
-  var customElement, bindable, bindingMode, computedFrom, inject, $, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class, _desc, _value, _class2, _descriptor, AutoCompleteWidget;
+  var customElement, bindable, bindingMode, computedFrom, inject, $, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _class, _desc, _value, _class2, _descriptor, AutoCompleteWidget;
 
   function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -95,31 +95,41 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         attribute: 'custom-css',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: ''
-      }), _dec9 = bindable('title'), _dec10 = bindable('onenterpressed'), _dec11 = bindable('onblur'), _dec12 = bindable({
+      }), _dec9 = bindable({
+        name: 'inputCustomCSS',
+        attribute: 'input-custom-css',
+        defaultBindingMode: bindingMode.oneTime,
+        defaultValue: ''
+      }), _dec10 = bindable('title'), _dec11 = bindable('onenterpressed'), _dec12 = bindable('onblur'), _dec13 = bindable({
         name: 'autoSelectFirstResult',
         attribute: 'auto-select-first',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: true
-      }), _dec13 = bindable({
+      }), _dec14 = bindable({
         name: 'grabFocus',
         attribute: 'grab-focus',
         defaultValue: false
-      }), _dec14 = bindable({
+      }), _dec15 = bindable({
         name: 'labelCol',
         attribute: 'label-col',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: ''
-      }), _dec15 = bindable({
+      }), _dec16 = bindable({
         name: 'noform',
         attribute: 'no-form',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: false
-      }), _dec16 = bindable({
+      }), _dec17 = bindable({
+        name: 'allowFreeText',
+        attribute: 'allow-freetext',
+        defaultBindingMode: bindingMode.oneTime,
+        defaultValue: false
+      }), _dec18 = bindable({
         name: 'textCol',
         attribute: 'text-col',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: ''
-      }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = (_class2 = function () {
+      }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = _dec17(_class = _dec18(_class = (_class2 = function () {
         function AutoCompleteWidget(element) {
           _classCallCheck(this, AutoCompleteWidget);
 
@@ -154,6 +164,8 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         };
 
         AutoCompleteWidget.prototype.selectedItemChanged = function selectedItemChanged(newValue) {
+          if (!this.input) return;
+
           var currentControlSelection = $(this.input).data('autocomplete').selection;
 
           if (currentControlSelection == null && newValue == null || currentControlSelection != null && currentControlSelection.hasOwnProperty('data') && currentControlSelection.data === newValue) {
@@ -161,7 +173,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
           }
 
           if (newValue == null) {
-            this.input.value = '';
+            if (!this.allowFreeText) this.input.value = '';
             $(this.input).data('autocomplete').selection = null;
           } else {
             $(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
@@ -219,9 +231,11 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         };
 
         AutoCompleteWidget.prototype.blurListener = function blurListener() {
-          if (this.selectedItem == null) {
+          if (this.selectedItem == null && !this.allowFreeText) {
             this.input.value = '';
-          }
+          } else if (this.selectedItem == null && this.allowFreeText && this.input.value != null) {
+              this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
+            }
 
           if (this.onblur && !this.showingSuggestions) {
             this.onblur();
@@ -251,7 +265,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
       }(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [bindable], {
         enumerable: true,
         initializer: null
-      })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
+      })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
 
       _export('AutoCompleteWidget', AutoCompleteWidget);
     }

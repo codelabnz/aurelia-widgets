@@ -46,6 +46,12 @@ import {VelocityAnimator} from 'aurelia-animator-velocity';
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
 })
+@bindable({
+  name: 'inputCustomCSS',
+  attribute: 'input-custom-css',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: ''
+})
 @bindable('title')
 @bindable('onenterpressed')
 @bindable('onblur')
@@ -69,6 +75,12 @@ import {VelocityAnimator} from 'aurelia-animator-velocity';
 @bindable({
   name: 'noform',
   attribute: 'no-form',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: false
+})
+@bindable({
+  name: 'allowFreeText',
+  attribute: 'allow-freetext',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
 })
@@ -113,6 +125,9 @@ export class AutoCompleteWidget {
   }
 
   selectedItemChanged(newValue) {
+    if (!this.input)
+      return;
+
     let currentControlSelection = $(this.input).data('autocomplete').selection;
     // onInvalidateSelection causes this function to be called async by aurelia binding engine, at this point
     // the text of the input control may have already been changed by the user so setting this.input.value can blow
@@ -124,7 +139,8 @@ export class AutoCompleteWidget {
     }
 
     if(newValue == null) {
-      this.input.value = '';
+      if (!this.allowFreeText)
+        this.input.value = '';
       $(this.input).data('autocomplete').selection = null;
     } else {
       $(this.input).data('autocomplete').suggestions = [ this.controller.createSuggestion(newValue) ];
@@ -182,8 +198,12 @@ export class AutoCompleteWidget {
   }
 
   blurListener() {
-    if (this.selectedItem == null) {
+    if (this.selectedItem == null && !this.allowFreeText) {
       this.input.value = '';
+    }
+    //if there is no selected item but we have a value in the input box, take this as a free text
+    else if (this.selectedItem == null && this.allowFreeText && this.input.value != null) {
+      this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
     }
 
     if (this.onblur && !this.showingSuggestions) {

@@ -1,20 +1,21 @@
 <template>
-	<div class="form-group" if.bind="textCol === '' && labelCol === ''">
+	<div class="form-group" if.bind="textCol === '' && labelCol === '' && noform === false">
 		<label class="control-label">${title}</label>
-		<input class="nocol form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+		<input class="nocol ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 	</div>
-	<div class="form-group" if.bind="textCol !== '' && labelCol !== ''">
+	<div class="form-group" if.bind="textCol !== '' && labelCol !== ''  && noform === false">
 		<div class="${labelCol}">
 			<label class="control-label">${title}</label>
 		</div>
 		<div class="${textCol}">
-			<input class="col form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+			<input class="col ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            		focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 		</div>
 	</div>
 
-	<input if.bind="noform" class="col ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+	<div if.bind="noform === 'true' && textCol === '' && labelCol === ''">
+		<input class="col ${inputCustomCSS} ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
        focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
-		
+	</div>
 </template>
