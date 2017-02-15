@@ -158,7 +158,9 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
             beforeRender: this.suggestionsShown.bind(this),
             onHide: this.suggestionsHidden.bind(this),
             deferRequestBy: 200,
-            autoSelectFirst: this.autoSelectFirstResult
+            autoSelectFirst: this.autoSelectFirstResult,
+            forceFixPosition: true,
+            width: "flex"
           });
           $(this.input).data('autocomplete').selection = this.selectedItem;
         };
@@ -233,9 +235,9 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
         AutoCompleteWidget.prototype.blurListener = function blurListener() {
           if (this.selectedItem == null && !this.allowFreeText) {
             this.input.value = '';
-          } else if (this.selectedItem == null && this.allowFreeText && this.input.value != null) {
-              this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
-            }
+          } else if (this.selectedItem == null && this.allowFreeText && this.input.value != null && !this.showingSuggestions) {
+            this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
+          }
 
           if (this.onblur && !this.showingSuggestions) {
             this.onblur();

@@ -113,7 +113,9 @@ export class AutoCompleteWidget {
       beforeRender: this.suggestionsShown.bind(this),
       onHide: this.suggestionsHidden.bind(this),
       deferRequestBy: 200,
-      autoSelectFirst: this.autoSelectFirstResult
+      autoSelectFirst: this.autoSelectFirstResult,
+      forceFixPosition: true,
+      width: "flex"
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;
   }
@@ -195,11 +197,10 @@ export class AutoCompleteWidget {
     if (this.selectedItem == null && !this.allowFreeText) {
       this.input.value = '';
     }
-    //if there is no selected item but we have a value in the input box, take this as a free text
-    else if (this.selectedItem == null && this.allowFreeText && this.input.value != null) {
+    else if (this.selectedItem == null && this.allowFreeText && this.input.value != null && !this.showingSuggestions) {
       this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
     }
-
+    
     if (this.onblur && !this.showingSuggestions) {
       this.onblur();
     }
