@@ -1,5 +1,5 @@
 <template>
-    <div class="form-group">
+    <div class="form-group" if.bind="noform === false || noform === 'false'">
         <div class="${labelCol}">
             <label class="control-label">${label}</label>
         </div>
@@ -7,5 +7,7 @@
             <input data-toggle="datepicker" class="form-control datepicker" value.bind="dateValue">
         </div>
     </div>
+
+    <input if.bind="noform == 'true'" data-toggle="datepicker" class="form-control datepicker" value.bind="dateValue">
     
 </template>

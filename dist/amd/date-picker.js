@@ -22,7 +22,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
     }
   }
 
-  var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class;
+  var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class;
 
   var DatePickerWidget = exports.DatePickerWidget = (_dec = (0, _aureliaTemplating.customElement)('date-picker'), _dec2 = (0, _aureliaTemplating.bindable)('label'), _dec3 = (0, _aureliaTemplating.bindable)({
     name: 'dateValue',
@@ -38,18 +38,21 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
     attributeName: 'label-col',
     defaultValue: '',
     defaultBindingMode: _aureliaBinding.bindingMode.oneTime
-  }), _dec6 = (0, _aureliaDependencyInjection.inject)(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = function () {
+  }), _dec6 = (0, _aureliaTemplating.bindable)({
+    name: 'noform',
+    attribute: 'no-form',
+    defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+    defaultValue: false
+  }), _dec7 = (0, _aureliaDependencyInjection.inject)(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = function () {
     function DatePickerWidget(element) {
       _classCallCheck(this, DatePickerWidget);
 
       this.element = element;
     }
 
-    DatePickerWidget.prototype.bind = function bind() {
-      this.inputElement = this.element.querySelector('input');
-    };
-
     DatePickerWidget.prototype.attached = function attached() {
+      this.inputElement = this.element.querySelector('input');
+
       var self = this;
 
       (0, _jquery2.default)(this.inputElement).datepicker({
@@ -64,8 +67,6 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
       }
     };
 
-    DatePickerWidget.prototype.unbind = function unbind() {};
-
     return DatePickerWidget;
-  }()) || _class) || _class) || _class) || _class) || _class) || _class);
+  }()) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
 });

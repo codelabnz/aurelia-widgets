@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class;
 
 import { customElement, bindable } from 'aurelia-templating';
 import { bindingMode } from 'aurelia-binding';
@@ -21,17 +21,20 @@ export let DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bind
   attributeName: 'label-col',
   defaultValue: '',
   defaultBindingMode: bindingMode.oneTime
-}), _dec6 = inject(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = class DatePickerWidget {
+}), _dec6 = bindable({
+  name: 'noform',
+  attribute: 'no-form',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: false
+}), _dec7 = inject(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = class DatePickerWidget {
 
   constructor(element) {
     this.element = element;
   }
 
-  bind() {
-    this.inputElement = this.element.querySelector('input');
-  }
-
   attached() {
+    this.inputElement = this.element.querySelector('input');
+
     var self = this;
 
     $(this.inputElement).datepicker({
@@ -46,6 +49,4 @@ export let DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bind
     }
   }
 
-  unbind() {}
-
-}) || _class) || _class) || _class) || _class) || _class) || _class);
+}) || _class) || _class) || _class) || _class) || _class) || _class) || _class);

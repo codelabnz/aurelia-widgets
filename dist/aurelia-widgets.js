@@ -518,6 +518,12 @@ import '@fengyuanchen/datepicker';
   defaultValue: '',
   defaultBindingMode: bindingMode.oneTime
 })
+@bindable({
+  name: 'noform',
+  attribute: 'no-form',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: false
+})
 @inject(Element)
 export class DatePickerWidget {
   
@@ -525,12 +531,9 @@ export class DatePickerWidget {
     this.element = element;
   }
 
-  bind() {
+  attached() {
     this.inputElement = this.element.querySelector('input');
 
-  }
-
-  attached() {
     var self = this;
 
     $(this.inputElement).datepicker({
@@ -544,11 +547,7 @@ export class DatePickerWidget {
       self.dateValue = moment().format('DD/MM/YYYY');
     }
   }
-
-  unbind() {
-   
-  }
-  
+ 
 }
 @inject(EventAggregator)
 @customElement('radio-button')
