@@ -142,6 +142,7 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
       width: "flex",
+      triggerSelectOnValidInput: false,
       formatResult: this.formatResult.bind(this)
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;

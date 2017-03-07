@@ -73,6 +73,12 @@ import 'devbridge-autocomplete';
   defaultValue: false
 })
 @bindable({
+  name: 'triggerSelectOnValidInput',
+  attribute: 'trigger-selectonvalidinput',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: true
+})
+@bindable({
   name: 'allowFreeText',
   attribute: 'allow-freetext',
   defaultBindingMode: bindingMode.oneTime,
@@ -116,6 +122,7 @@ export class AutoCompleteWidget {
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
       width: "flex",
+      triggerSelectOnValidInput: this.triggerSelectOnValidInput,
       formatResult:this.formatResult.bind(this)
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;

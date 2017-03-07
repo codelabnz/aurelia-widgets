@@ -160,6 +160,7 @@ var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDepend
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
       width: "flex",
+      triggerSelectOnValidInput: false,
       formatResult: this.formatResult.bind(this)
     });
     (0, _jquery2.default)(this.input).data('autocomplete').selection = this.selectedItem;

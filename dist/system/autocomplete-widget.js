@@ -161,6 +161,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
             autoSelectFirst: this.autoSelectFirstResult,
             forceFixPosition: true,
             width: "flex",
+            triggerSelectOnValidInput: false,
             formatResult: this.formatResult.bind(this)
           });
           $(this.input).data('autocomplete').selection = this.selectedItem;

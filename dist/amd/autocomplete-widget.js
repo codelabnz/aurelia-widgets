@@ -159,6 +159,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
         autoSelectFirst: this.autoSelectFirstResult,
         forceFixPosition: true,
         width: "flex",
+        triggerSelectOnValidInput: false,
         formatResult: this.formatResult.bind(this)
       });
       (0, _jquery2.default)(this.input).data('autocomplete').selection = this.selectedItem;
