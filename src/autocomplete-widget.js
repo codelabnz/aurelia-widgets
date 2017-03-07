@@ -115,7 +115,8 @@ export class AutoCompleteWidget {
       deferRequestBy: 200,
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
-      width: "flex"
+      width: "flex",
+      formatResult:this.formatResult.bind(this)
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;
   }
@@ -143,6 +144,13 @@ export class AutoCompleteWidget {
       $(this.input).data('autocomplete').onSelect(0);
     }
     
+  }
+
+  formatResult(suggestion, currentValue) {
+    if(this.controller.formatResult)
+        return this.controller.formatResult(suggestion.data);
+    else
+      return this.controller.formatItem(suggestion.data);
   }
 
   lookup(query, done) {

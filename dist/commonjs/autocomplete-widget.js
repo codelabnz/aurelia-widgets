@@ -159,7 +159,8 @@ var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDepend
       deferRequestBy: 200,
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
-      width: "flex"
+      width: "flex",
+      formatResult: this.formatResult.bind(this)
     });
     (0, _jquery2.default)(this.input).data('autocomplete').selection = this.selectedItem;
   };
@@ -180,6 +181,10 @@ var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDepend
       (0, _jquery2.default)(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
       (0, _jquery2.default)(this.input).data('autocomplete').onSelect(0);
     }
+  };
+
+  AutoCompleteWidget.prototype.formatResult = function formatResult(suggestion, currentValue) {
+    if (this.controller.formatResult) return this.controller.formatResult(suggestion.data);else return this.controller.formatItem(suggestion.data);
   };
 
   AutoCompleteWidget.prototype.lookup = function lookup(query, done) {

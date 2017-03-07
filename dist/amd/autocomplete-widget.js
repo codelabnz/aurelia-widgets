@@ -158,7 +158,8 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
         deferRequestBy: 200,
         autoSelectFirst: this.autoSelectFirstResult,
         forceFixPosition: true,
-        width: "flex"
+        width: "flex",
+        formatResult: this.formatResult.bind(this)
       });
       (0, _jquery2.default)(this.input).data('autocomplete').selection = this.selectedItem;
     };
@@ -179,6 +180,10 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
         (0, _jquery2.default)(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
         (0, _jquery2.default)(this.input).data('autocomplete').onSelect(0);
       }
+    };
+
+    AutoCompleteWidget.prototype.formatResult = function formatResult(suggestion, currentValue) {
+      if (this.controller.formatResult) return this.controller.formatResult(suggestion.data);else return this.controller.formatItem(suggestion.data);
     };
 
     AutoCompleteWidget.prototype.lookup = function lookup(query, done) {

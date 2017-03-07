@@ -160,7 +160,8 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
             deferRequestBy: 200,
             autoSelectFirst: this.autoSelectFirstResult,
             forceFixPosition: true,
-            width: "flex"
+            width: "flex",
+            formatResult: this.formatResult.bind(this)
           });
           $(this.input).data('autocomplete').selection = this.selectedItem;
         };
@@ -181,6 +182,10 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
             $(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
             $(this.input).data('autocomplete').onSelect(0);
           }
+        };
+
+        AutoCompleteWidget.prototype.formatResult = function formatResult(suggestion, currentValue) {
+          if (this.controller.formatResult) return this.controller.formatResult(suggestion.data);else return this.controller.formatItem(suggestion.data);
         };
 
         AutoCompleteWidget.prototype.lookup = function lookup(query, done) {
