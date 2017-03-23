@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _class, _desc, _value, _class2, _descriptor;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _class, _desc, _value, _class2, _descriptor;
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -102,16 +102,21 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
 }), _dec17 = bindable({
+  name: 'triggerSelectOnValidInput',
+  attribute: 'trigger-selectonvalidinput',
+  defaultBindingMode: bindingMode.oneTime,
+  defaultValue: true
+}), _dec18 = bindable({
   name: 'allowFreeText',
   attribute: 'allow-freetext',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
-}), _dec18 = bindable({
+}), _dec19 = bindable({
   name: 'textCol',
   attribute: 'text-col',
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = _dec17(_class = _dec18(_class = (_class2 = class AutoCompleteWidget {
+}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = _dec17(_class = _dec18(_class = _dec19(_class = (_class2 = class AutoCompleteWidget {
 
   constructor(element) {
     _initDefineProp(this, 'onchange', _descriptor, this);
@@ -142,8 +147,9 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
       autoSelectFirst: this.autoSelectFirstResult,
       forceFixPosition: true,
       width: "flex",
-      triggerSelectOnValidInput: false,
-      formatResult: this.formatResult.bind(this)
+      triggerSelectOnValidInput: this.triggerSelectOnValidInput,
+      formatResult: this.formatResult.bind(this),
+      tabDisabled: true
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;
   }
@@ -248,4 +254,4 @@ export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [bindable], {
   enumerable: true,
   initializer: null
-})), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
+})), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);

@@ -123,7 +123,8 @@ export class AutoCompleteWidget {
       forceFixPosition: true,
       width: "flex",
       triggerSelectOnValidInput: this.triggerSelectOnValidInput,
-      formatResult:this.formatResult.bind(this)
+      formatResult:this.formatResult.bind(this),
+      tabDisabled: true
     });
     $(this.input).data('autocomplete').selection = this.selectedItem;
   }
