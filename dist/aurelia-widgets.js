@@ -96,6 +96,12 @@ import {VelocityAnimator} from 'aurelia-animator-velocity';
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
 })
+@bindable({
+  name: 'maxlength',
+  attribute: 'maxlength',
+  defaultValue: null,
+  defaultBindingMode: bindingMode.oneTime,
+})
 export class AutoCompleteWidget {
 
   @bindable onchange;
