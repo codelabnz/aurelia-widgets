@@ -1,7 +1,11 @@
 <template>
 	<div class="form-group" if.bind="textCol === '' && labelCol === '' && noform === false">
 		<label class="control-label">${title}</label>
-		<input class="nocol ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+
+		<input if.bind="maxlength === null" class="nocol ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+		focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
+
+		<input if.bind="maxlength !== null" class="nocol ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            focus.bind="grabFocus" maxlength="${maxlength !== null ? maxlength : ''}" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 	</div>
 	<div class="form-group" if.bind="textCol !== '' && labelCol !== ''  && noform === false">
@@ -9,13 +13,21 @@
 			<label class="control-label">${title}</label>
 		</div>
 		<div class="${textCol}">
-			<input class="col ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+
+				<input if.bind="maxlength === null"  class="col ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+				focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
+
+			<input if.bind="maxlength !== null" class="col ${inputCustomCSS} form-control ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
            		focus.bind="grabFocus" maxlength="${maxlength !== null ? maxlength : ''}" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 		</div>
 	</div>
 
 	<div if.bind="noform === 'true' && textCol === '' && labelCol === ''">
-		<input class="col ${inputCustomCSS} ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+
+			<input  if.bind="maxlength === null" class="col ${inputCustomCSS} ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
+			focus.bind="grabFocus" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
+
+		<input if.bind="maxlength !== null" class="col ${inputCustomCSS} ${size == 'small' ? 'input-sm' : size == 'large' ? 'input-lg' : ''}" type="text" placeholder.one-time="placeholder" click.delegate="selectAll()"
        focus.bind="grabFocus" maxlength="${maxlength !== null ? maxlength : ''}" autocomplete="off" keyup.delegate="keyUpListener($event)" disabled.bind="disabled" blur.trigger="blurListener()"/>
 	</div>
 </template>
