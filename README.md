@@ -12,6 +12,8 @@ Widgets Available:
 - Text Display
 - Text Input
 - Toggle Button
+- Date Picker
+- DateTime Picker
 
 All the input widgets (except the Toggle Button) have a grab-focus attribute which, when set to true, will focus the main input of the widget.
 

@@ -8,6 +8,7 @@ export function configure(aurelia) {
                            './text-display-widget',
                            './togglebutton',
                            './select-on-focus',
-                           './date-picker']);
+                           './date-picker',
+                           './datetime-picker']);
 }
 

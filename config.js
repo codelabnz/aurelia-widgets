@@ -9,6 +9,7 @@ System.config({
   },
 
   map: {
+    "Eonasdan/bootstrap-datetimepicker": "github:Eonasdan/bootstrap-datetimepicker@4.17.47",
     "aurelia-animator-velocity": "npm:aurelia-animator-velocity@1.1.0",
     "aurelia-binding": "npm:aurelia-binding@1.2.1",
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.0",

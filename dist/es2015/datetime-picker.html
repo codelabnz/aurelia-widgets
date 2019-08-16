@@ -1,0 +1,21 @@
+<template>
+  <div class="form-group" if.bind="noform === false || noform === 'false'">
+      <div class="${labelCol}">
+          <label class="control-label">${label}</label>
+      </div>
+      <div class="${textCol} input-group date">
+          <input type="text" class="form-control" value.bind="dateTimeValue">
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+  </div>
+
+  <div class="input-group date">
+      <input if.bind="noform == 'true'" type="text" class="form-control" value.bind="dateTimeValue">
+      <span if.bind="noform == 'true'" class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+  </div>
+
+</template>

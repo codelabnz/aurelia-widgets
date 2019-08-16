@@ -5,5 +5,5 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.configure = configure;
 function configure(aurelia) {
-                          aurelia.globalResources(['./autocomplete-widget', './combo', './text-widget', './checkbox', './radiobutton', './currency-input', './text-display-widget', './togglebutton', './select-on-focus', './date-picker']);
+                          aurelia.globalResources(['./autocomplete-widget', './combo', './text-widget', './checkbox', './radiobutton', './currency-input', './text-display-widget', './togglebutton', './select-on-focus', './date-picker', './datetime-picker']);
 }
