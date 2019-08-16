@@ -61,11 +61,11 @@ var DateTimePickerWidget = exports.DateTimePickerWidget = (_dec = (0, _aureliaTe
     (0, _jquery2.default)(this.inputElement).datetimepicker({
       format: 'DD/MM/YYYY HH:ss'
     }).on('dp.change', function (e) {
-      self.dateTimeValue = (0, _moment2.default)(e.date).format("DD/MM/YYYY HH:ss");
+      self.dateTimeValue = (0, _moment2.default)(e.date).format();
     });
 
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
-      self.dateTimeValue = (0, _moment2.default)().format('DD/MM/YYYY HH:ss');
+      self.dateTimeValue = (0, _moment2.default)().format();
     }
   };
 

@@ -45,11 +45,11 @@ export class DateTimePickerWidget {
     $(this.inputElement).datetimepicker({
       format: 'DD/MM/YYYY HH:ss'
     }).on('dp.change', function(e) {
-      self.dateTimeValue = moment(e.date).format("DD/MM/YYYY HH:ss");
+      self.dateTimeValue = moment(e.date).format();
     });
 
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
-      self.dateTimeValue = moment().format('DD/MM/YYYY HH:ss');
+      self.dateTimeValue = moment().format();
     }
   }
 
