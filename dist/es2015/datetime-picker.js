@@ -30,6 +30,7 @@ export let DateTimePickerWidget = (_dec = customElement('datetime-picker'), _dec
 
   constructor(element) {
     this.element = element;
+    this.dt = '';
   }
 
   attached() {
@@ -41,11 +42,15 @@ export let DateTimePickerWidget = (_dec = customElement('datetime-picker'), _dec
       format: 'DD/MM/YYYY HH:ss'
     }).on('dp.change', function (e) {
       self.dateTimeValue = moment(e.date).format();
+      self.dt = moment(e.date).format('DD/MM/YYYY HH:ss');
     });
 
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
       self.dateTimeValue = moment().format();
-    }
+      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+    } else {
+        self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+      }
   }
 
 }) || _class) || _class) || _class) || _class) || _class) || _class) || _class);

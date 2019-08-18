@@ -35,6 +35,7 @@ export class DateTimePickerWidget {
 
   constructor(element) {
     this.element = element;
+    this.dt = '';
   }
 
   attached() {
@@ -46,10 +47,17 @@ export class DateTimePickerWidget {
       format: 'DD/MM/YYYY HH:ss'
     }).on('dp.change', function(e) {
       self.dateTimeValue = moment(e.date).format();
+      self.dt = moment(e.date).format('DD/MM/YYYY HH:ss');
     });
 
+    //default today's date if there is no binding value
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
       self.dateTimeValue = moment().format();
+      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+    }
+    //otherwise there is a value, bind to the
+    else {
+      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
     }
   }
 

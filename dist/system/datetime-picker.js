@@ -49,6 +49,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
           _classCallCheck(this, DateTimePickerWidget);
 
           this.element = element;
+          this.dt = '';
         }
 
         DateTimePickerWidget.prototype.attached = function attached() {
@@ -60,11 +61,15 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
             format: 'DD/MM/YYYY HH:ss'
           }).on('dp.change', function (e) {
             self.dateTimeValue = moment(e.date).format();
+            self.dt = moment(e.date).format('DD/MM/YYYY HH:ss');
           });
 
           if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
             self.dateTimeValue = moment().format();
-          }
+            self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+          } else {
+              self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+            }
         };
 
         return DateTimePickerWidget;
