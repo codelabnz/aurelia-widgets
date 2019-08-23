@@ -3,7 +3,7 @@
 System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', 'eonasdan-bootstrap-datetimepicker'], function (_export, _context) {
   "use strict";
 
-  var customElement, bindable, bindingMode, inject, $, moment, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, DateTimePickerWidget;
+  var customElement, bindable, bindingMode, inject, $, moment, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _class, DateTimePickerWidget;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -25,26 +25,31 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
       moment = _moment.default;
     }, function (_eonasdanBootstrapDatetimepicker) {}],
     execute: function () {
-      _export('DateTimePickerWidget', DateTimePickerWidget = (_dec = customElement('datetime-picker'), _dec2 = bindable('label'), _dec3 = bindable({
+      _export('DateTimePickerWidget', DateTimePickerWidget = (_dec = customElement('datetime-picker'), _dec2 = bindable('label'), _dec3 = bindable('onenterpressed'), _dec4 = bindable('onblur'), _dec5 = bindable({
         name: 'dateTimeValue',
         attribute: 'datetime-value',
         defaultBindingMode: bindingMode.twoWay
-      }), _dec4 = bindable({
+      }), _dec6 = bindable({
         name: 'textCol',
         attributeName: 'text-col',
         defaultValue: '',
         defaultBindingMode: bindingMode.oneTime
-      }), _dec5 = bindable({
+      }), _dec7 = bindable({
         name: 'labelCol',
         attributeName: 'label-col',
         defaultValue: '',
         defaultBindingMode: bindingMode.oneTime
-      }), _dec6 = bindable({
+      }), _dec8 = bindable({
         name: 'noform',
         attribute: 'no-form',
         defaultBindingMode: bindingMode.oneTime,
         defaultValue: false
-      }), _dec7 = inject(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = function () {
+      }), _dec9 = bindable({
+        name: 'disabled',
+        attribute: 'disabled',
+        defaultValue: false,
+        defaultBindingMode: bindingMode.oneWay
+      }), _dec10 = inject(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = function () {
         function DateTimePickerWidget(element) {
           _classCallCheck(this, DateTimePickerWidget);
 
@@ -58,22 +63,43 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
           var self = this;
 
           $(this.inputElement).datetimepicker({
-            format: 'DD/MM/YYYY HH:ss'
+            format: 'DD/MM/YYYY HH:mm'
           }).on('dp.change', function (e) {
-            self.dateTimeValue = moment(e.date).format();
-            self.dt = moment(e.date).format('DD/MM/YYYY HH:ss');
+            if (e.date == '' || e.date == null || e.date == undefined) {
+              self.dateTimeValue = '';
+              self.dt = '';
+            } else {
+              self.dateTimeValue = moment(e.date).format();
+              self.dt = moment(e.date).format('DD/MM/YYYY HH:mm');
+            }
           });
 
           if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
             self.dateTimeValue = moment().format();
-            self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+            self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
           } else {
-              self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+              self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
             }
         };
 
+        DateTimePickerWidget.prototype.keyUpListener = function keyUpListener(event) {
+          if (event.which === 13) {
+            if (this.onenterpressed) {
+              this.onenterpressed();
+              event.preventDefault();
+            }
+          }
+        };
+
+        DateTimePickerWidget.prototype.blurListener = function blurListener() {
+
+          if (this.onblur) {
+            this.onblur();
+          }
+        };
+
         return DateTimePickerWidget;
-      }()) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
+      }()) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class));
 
       _export('DateTimePickerWidget', DateTimePickerWidget);
     }

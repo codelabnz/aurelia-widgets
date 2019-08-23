@@ -7,6 +7,8 @@ import 'eonasdan-bootstrap-datetimepicker';
 
 @customElement('datetime-picker')
 @bindable('label')
+@bindable('onenterpressed')
+@bindable('onblur')
 @bindable({
   name:'dateTimeValue',
   attribute:'datetime-value',
@@ -30,6 +32,12 @@ import 'eonasdan-bootstrap-datetimepicker';
   defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
 })
+@bindable({
+  name: 'disabled',
+  attribute: 'disabled',
+  defaultValue: false,
+  defaultBindingMode: bindingMode.oneWay
+})
 @inject(Element)
 export class DateTimePickerWidget {
 
@@ -44,20 +52,42 @@ export class DateTimePickerWidget {
     var self = this;
 
     $(this.inputElement).datetimepicker({
-      format: 'DD/MM/YYYY HH:ss'
+      format: 'DD/MM/YYYY HH:mm'
     }).on('dp.change', function(e) {
-      self.dateTimeValue = moment(e.date).format();
-      self.dt = moment(e.date).format('DD/MM/YYYY HH:ss');
+      if (e.date == '' || e.date == null || e.date == undefined) {
+        self.dateTimeValue = '';
+        self.dt = '';
+      }
+      else {
+        self.dateTimeValue = moment(e.date).format();
+        self.dt = moment(e.date).format('DD/MM/YYYY HH:mm');
+      }
     });
 
     //default today's date if there is no binding value
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
       self.dateTimeValue = moment().format();
-      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
     }
     //otherwise there is a value, bind to the
     else {
-      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:ss');
+      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
+    }
+  }
+
+  keyUpListener(event) {
+    if (event.which === 13) {
+      if (this.onenterpressed) {
+        this.onenterpressed();
+        event.preventDefault();
+      }
+    }
+  }
+
+  blurListener() {
+
+    if (this.onblur) {
+      this.onblur();
     }
   }
 
