@@ -62,7 +62,8 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
       var self = this;
 
       (0, _jquery2.default)(this.inputElement).datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        stepping: 30
       }).on('dp.change', function (e) {
         if (e.date == '' || e.date == null || e.date == undefined) {
           self.dateTimeValue = '';

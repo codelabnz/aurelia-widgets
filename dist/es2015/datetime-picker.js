@@ -44,7 +44,8 @@ export let DateTimePickerWidget = (_dec = customElement('datetime-picker'), _dec
     var self = this;
 
     $(this.inputElement).datetimepicker({
-      format: 'DD/MM/YYYY HH:mm'
+      format: 'DD/MM/YYYY HH:mm',
+      stepping: 30
     }).on('dp.change', function (e) {
       if (e.date == '' || e.date == null || e.date == undefined) {
         self.dateTimeValue = '';
