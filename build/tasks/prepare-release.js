@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
 var paths = require('../paths');
 var changelog = require('conventional-changelog');
 var fs = require('fs');
@@ -24,13 +23,10 @@ gulp.task('changelog', function(callback) {
   });
 });
 
-gulp.task('prepare-release', function(callback){
-  return runSequence(
+gulp.task('prepare-release', gulp.series(
     'build',
     'lint',
     'bump-version',
     'doc',
     'changelog',
-    callback
-  );
-});
+));

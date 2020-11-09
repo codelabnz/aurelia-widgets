@@ -21,7 +21,7 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-require('@fengyuanchen/datepicker');
+require('@wildhart/datepicker');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66,7 +66,7 @@ var DatePickerWidget = exports.DatePickerWidget = (_dec = (0, _aureliaTemplating
     });
 
     if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-      self.dateValue = (0, _moment2.default)().format('DD/MM/YYYY');
+      self.dateValue = "";
     }
   };
 

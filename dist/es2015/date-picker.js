@@ -5,7 +5,7 @@ import { bindingMode } from 'aurelia-binding';
 import { inject } from 'aurelia-dependency-injection';
 import $ from 'jquery';
 import moment from 'moment';
-import '@fengyuanchen/datepicker';
+import '@wildhart/datepicker';
 
 export let DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bindable('label'), _dec3 = bindable({
   name: 'dateValue',
@@ -45,7 +45,7 @@ export let DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bind
     });
 
     if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-      self.dateValue = moment().format('DD/MM/YYYY');
+      self.dateValue = "";
     }
   }
 

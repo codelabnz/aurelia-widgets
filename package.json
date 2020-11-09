@@ -20,7 +20,7 @@
   "author": "Drive Software",
   "license": "MIT",
   "devDependencies": {
-    "@fengyuanchen/datepicker": "github:fengyuanchen/datepicker",
+    "@wildhart/datepicker": "github:wildhart/datepicker",
     "aurelia-tools": "^0.1.22",
     "babel-plugin-syntax-flow": "^6.5.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -37,7 +37,7 @@
     "del": "^1.2.1",
     "devbridge-autocomplete": "^1.4.10",
     "eonasdan-bootstrap-datetimepicker": "github:Eonasdan/bootstrap-datetimepicker",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-bump": "^0.3.1",
     "gulp-changed": "^1.3.0",
@@ -58,7 +58,6 @@
     "karma-jspm": "^2.2.3",
     "object.assign": "^1.1.1",
     "require-dir": "^1.2.0",
-    "run-sequence": "^1.0.2",
     "through2": "^2.0.1",
     "vinyl-paths": "^1.0.0",
     "yargs": "^2.1.1"
@@ -80,7 +79,7 @@
       "bootstrap-toggle": "npm:bootstrap-toggle@^2.2.2",
       "css": "github:systemjs/plugin-css@^0.1.25",
       "devbridge-autocomplete": "npm:devbridge-autocomplete@^1.3.0",
-      "fengyuanchen/datepicker": "github:fengyuanchen/datepicker@^0.4.0",
+      "@wildhart/datepicker": "github:wildhart/datepicker@^1.0.11",
       "jquery": "npm:jquery@2.2.4",
       "numeral": "npm:numeral@^1.5.3"
     },

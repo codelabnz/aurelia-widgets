@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@fengyuanchen/datepicker'], function (_export, _context) {
+System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker'], function (_export, _context) {
   "use strict";
 
   var customElement, bindable, bindingMode, inject, $, moment, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, DatePickerWidget;
@@ -23,7 +23,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
       $ = _jquery.default;
     }, function (_moment) {
       moment = _moment.default;
-    }, function (_fengyuanchenDatepicker) {}],
+    }, function (_wildhartDatepicker) {}],
     execute: function () {
       _export('DatePickerWidget', DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bindable('label'), _dec3 = bindable({
         name: 'dateValue',
@@ -64,7 +64,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
           });
 
           if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-            self.dateValue = moment().format('DD/MM/YYYY');
+            self.dateValue = "";
           }
         };
 

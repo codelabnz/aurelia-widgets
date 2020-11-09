@@ -520,7 +520,7 @@ export class CurrencyInput {
     this.value = oldValue;
   }
 }
-import '@fengyuanchen/datepicker';
+import '@wildhart/datepicker';
 
 @customElement('date-picker')
 @bindable('label')
@@ -567,7 +567,7 @@ export class DatePickerWidget {
     });
 
     if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-      self.dateValue = moment().format('DD/MM/YYYY');
+      self.dateValue = "";
     }
   }
  

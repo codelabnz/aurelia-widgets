@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
 var to5 = require('gulp-babel');
 var paths = require('../paths');
 var compilerOptions = require('../babel-options');
@@ -12,6 +11,7 @@ var through2 = require('through2');
 var tools = require('aurelia-tools');
 var concat = require('gulp-concat');
 var insert = require('gulp-insert');
+require('./clean');
 
 var jsName = paths.packageName + '.js';
 var moduleTypes = ['commonjs', 'amd', 'system', 'es2015'];
@@ -39,11 +39,11 @@ moduleTypes.forEach(function(mod) {
       .pipe(gulp.dest(paths.output + mod));
   });
 
-  gulp.task('build-' + mod, ['build-html-' + mod,'build-styles-' + mod], function () {
+  gulp.task('build-' + mod, gulp.series('build-html-' + mod,'build-styles-' + mod, function () {
     return gulp.src(paths.source)
     .pipe(to5(assign({}, compilerOptions[mod]())))
     .pipe(gulp.dest(paths.output + mod));
-  });
+  }));
   buildTypes.push('build-' + mod);
 });
 
@@ -68,13 +68,10 @@ gulp.task('build-index', function(){
 });
 
 
-gulp.task('build', function(callback) {
-  return runSequence(
+gulp.task('build', gulp.series(
     'clean',
     'build-index',
     buildTypes,
-    callback
-  );
-});
+));
 
 

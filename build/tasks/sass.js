@@ -1,11 +1,9 @@
 var gulp = require('gulp');
-var minifyCSS = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-ruby-sass');
 var gulpFilter = require('gulp-filter');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
-var runSequence = require('run-sequence');
 
 
 /**

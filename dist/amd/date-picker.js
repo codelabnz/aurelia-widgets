@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@fengyuanchen/datepicker'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
+define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -63,7 +63,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
       });
 
       if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-        self.dateValue = (0, _moment2.default)().format('DD/MM/YYYY');
+        self.dateValue = "";
       }
     };
 

@@ -22,7 +22,7 @@ System.config({
     "bootstrap-toggle": "npm:bootstrap-toggle@2.2.2",
     "css": "github:systemjs/plugin-css@0.1.26",
     "devbridge-autocomplete": "npm:devbridge-autocomplete@1.2.26",
-    "fengyuanchen/datepicker": "github:fengyuanchen/datepicker@0.4.0",
+    "wildhart/datepicker": "github:wildhart/datepicker@1.0.11",
     "jquery": "npm:jquery@2.2.4",
     "numeral": "npm:numeral@1.5.3",
     "github:jspm/nodelibs-assert@0.1.0": {
