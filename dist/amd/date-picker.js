@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
+define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker/dist/datepicker.js', '@wildhart/datepicker/dist/datepicker.css'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {

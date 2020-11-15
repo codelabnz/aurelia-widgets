@@ -1,4 +1,17 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Checkbox = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _desc, _value, _class2, _descriptor;
+
+var _aureliaTemplating = require('aurelia-templating');
+
+var _aureliaBinding = require('aurelia-binding');
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -9,6 +22,8 @@ function _initDefineProp(target, property, descriptor, context) {
     value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
   });
 }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -43,52 +58,54 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { bindable } from 'aurelia-templating';
-import { bindingMode } from 'aurelia-binding';
-
-export let Checkbox = (_dec = bindable({
+var Checkbox = exports.Checkbox = (_dec = (0, _aureliaTemplating.bindable)({
   name: 'labelText',
   attribute: 'label-text',
-  defaultBindingMode: bindingMode.oneTime
-}), _dec2 = bindable({
+  defaultBindingMode: _aureliaBinding.bindingMode.oneTime
+}), _dec2 = (0, _aureliaTemplating.bindable)({
   name: 'enabled',
   attribute: 'enabled',
-  defaultBindingMode: bindingMode.oneWay
-}), _dec3 = bindable({
+  defaultBindingMode: _aureliaBinding.bindingMode.oneWay
+}), _dec3 = (0, _aureliaTemplating.bindable)({
   name: 'checked',
   attribute: 'checked',
-  defaultBindingMode: bindingMode.twoWay
-}), _dec4 = bindable({
+  defaultBindingMode: _aureliaBinding.bindingMode.twoWay
+}), _dec4 = (0, _aureliaTemplating.bindable)({
   name: 'grabFocus',
   attribute: 'grab-focus',
   defaultValue: false
-}), _dec5 = bindable({
+}), _dec5 = (0, _aureliaTemplating.bindable)({
   name: 'iconFamilyClass',
   attribute: 'icon-family-class',
   defaultValue: 'fa'
-}), _dec6 = bindable({
+}), _dec6 = (0, _aureliaTemplating.bindable)({
   name: 'checkedIconClass',
   attribute: 'checked-icon-class',
   defaultValue: 'fa-check'
-}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = (_class2 = class Checkbox {
+}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = (_class2 = function () {
+  function Checkbox() {
+    _classCallCheck(this, Checkbox);
 
-  constructor() {
     _initDefineProp(this, 'ontoggle', _descriptor, this);
 
     this.checked = false;
     this.enabled = true;
   }
 
-  checkboxSelected() {
-    if (!this.enabled) return;
+  _createClass(Checkbox, [{
+    key: 'checkboxSelected',
+    value: function checkboxSelected() {
+      if (!this.enabled) return;
 
-    this.checked = !this.checked;
-    if (this.ontoggle) {
-      this.ontoggle({ checked: this.checked });
+      this.checked = !this.checked;
+      if (this.ontoggle) {
+        this.ontoggle({ checked: this.checked });
+      }
     }
-  }
+  }]);
 
-}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'ontoggle', [bindable], {
+  return Checkbox;
+}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'ontoggle', [_aureliaTemplating.bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class);

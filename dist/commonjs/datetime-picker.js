@@ -21,7 +21,9 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-require('eonasdan-bootstrap-datetimepicker');
+require('eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
+
+require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -64,6 +66,7 @@ var DateTimePickerWidget = exports.DateTimePickerWidget = (_dec = (0, _aureliaTe
 
     var self = this;
 
+    window.jqueryAurelia = jQuery;
     (0, _jquery2.default)(this.inputElement).datetimepicker({
       format: 'DD/MM/YYYY HH:mm',
       stepping: 30

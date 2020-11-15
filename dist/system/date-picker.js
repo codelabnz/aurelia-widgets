@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker'], function (_export, _context) {
+System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', '@wildhart/datepicker/dist/datepicker.js', '@wildhart/datepicker/dist/datepicker.css'], function (_export, _context) {
   "use strict";
 
   var customElement, bindable, bindingMode, inject, $, moment, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, DatePickerWidget;
@@ -23,7 +23,7 @@ System.register(['aurelia-templating', 'aurelia-binding', 'aurelia-dependency-in
       $ = _jquery.default;
     }, function (_moment) {
       moment = _moment.default;
-    }, function (_wildhartDatepicker) {}],
+    }, function (_wildhartDatepickerDistDatepickerJs) {}, function (_wildhartDatepickerDistDatepickerCss) {}],
     execute: function () {
       _export('DatePickerWidget', DatePickerWidget = (_dec = customElement('date-picker'), _dec2 = bindable('label'), _dec3 = bindable({
         name: 'dateValue',

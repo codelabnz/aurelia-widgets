@@ -3,7 +3,8 @@ import {bindingMode} from 'aurelia-binding';
 import {inject} from 'aurelia-dependency-injection';
 import $ from 'jquery';
 import moment from 'moment';
-import 'eonasdan-bootstrap-datetimepicker';
+import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
+import 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js';
 
 @customElement('datetime-picker')
 @bindable('label')
@@ -51,6 +52,7 @@ export class DateTimePickerWidget {
 
     var self = this;
 
+    window.jqueryAurelia = jQuery;
     $(this.inputElement).datetimepicker({
       format: 'DD/MM/YYYY HH:mm',
       stepping: 30

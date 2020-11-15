@@ -21,7 +21,9 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-require('@wildhart/datepicker');
+require('@wildhart/datepicker/dist/datepicker.js');
+
+require('@wildhart/datepicker/dist/datepicker.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

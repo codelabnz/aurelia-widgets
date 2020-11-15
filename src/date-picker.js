@@ -3,7 +3,8 @@ import {bindingMode} from 'aurelia-binding';
 import {inject} from 'aurelia-dependency-injection';
 import $ from 'jquery';
 import moment from 'moment';
-import '@wildhart/datepicker';
+import '@wildhart/datepicker/dist/datepicker.js';
+import '@wildhart/datepicker/dist/datepicker.css';
 
 @customElement('date-picker')
 @bindable('label')
