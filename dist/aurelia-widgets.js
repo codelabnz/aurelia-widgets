@@ -519,8 +519,8 @@ export class CurrencyInput {
     this.value = oldValue;
   }
 }
-import '@wildhart/datepicker/dist/datepicker.js';
-import '@wildhart/datepicker/dist/datepicker.css';
+import '@codelabnz/datepicker/dist/datepicker.js';
+import '@codelabnz/datepicker/dist/datepicker.css';
 
 @customElement('date-picker')
 @bindable('label')

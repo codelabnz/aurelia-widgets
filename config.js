@@ -9,7 +9,6 @@ System.config({
   },
 
   map: {
-    "@wildhart/datepicker": "github:wildhart/datepicker@1.0.11",
     "Eonasdan/bootstrap-datetimepicker": "github:Eonasdan/bootstrap-datetimepicker@4.17.47",
     "aurelia-animator-velocity": "npm:aurelia-animator-velocity@1.1.0",
     "aurelia-binding": "npm:aurelia-binding@1.2.1",
@@ -21,6 +20,7 @@ System.config({
     "aurelia-templating": "npm:aurelia-templating@1.4.0",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "bootstrap-toggle": "npm:bootstrap-toggle@2.2.2",
+    "codelabnz/datepicker": "github:codelabnz/datepicker@1.0.10",
     "css": "github:systemjs/plugin-css@0.1.26",
     "devbridge-autocomplete": "npm:devbridge-autocomplete@1.2.26",
     "jquery": "npm:jquery@2.2.4",
