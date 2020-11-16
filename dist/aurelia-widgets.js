@@ -2,7 +2,6 @@ import $ from 'jquery';
 import 'devbridge-autocomplete';
 import numeral from 'numeral';
 import moment from 'moment';
-import 'eonasdan-bootstrap-datetimepicker';
 import 'bootstrap';
 import 'bootstrap-toggle';
 import {customElement,bindable,customAttribute} from 'aurelia-templating';
@@ -520,7 +519,8 @@ export class CurrencyInput {
     this.value = oldValue;
   }
 }
-import '@fengyuanchen/datepicker';
+import '@codelabnz/datepicker/dist/datepicker.js';
+import '@codelabnz/datepicker/dist/datepicker.css';
 
 @customElement('date-picker')
 @bindable('label')
@@ -567,11 +567,14 @@ export class DatePickerWidget {
     });
 
     if (this.dateValue === '' || this.dateValue == null || this.dateValue == undefined) {
-      self.dateValue = moment().format('DD/MM/YYYY');
+      self.dateValue = "";
     }
   }
  
 }
+import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
+import 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js';
+
 @customElement('datetime-picker')
 @bindable('label')
 @bindable('onenterpressed')
@@ -618,6 +621,7 @@ export class DateTimePickerWidget {
 
     var self = this;
 
+    window.jqueryAurelia = jQuery;
     $(this.inputElement).datetimepicker({
       format: 'DD/MM/YYYY HH:mm',
       stepping: 30

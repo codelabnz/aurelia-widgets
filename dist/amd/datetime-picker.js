@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', 'eonasdan-bootstrap-datetimepicker'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
+define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-injection', 'jquery', 'moment', 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'], function (exports, _aureliaTemplating, _aureliaBinding, _aureliaDependencyInjection, _jquery, _moment) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -61,6 +61,7 @@ define(['exports', 'aurelia-templating', 'aurelia-binding', 'aurelia-dependency-
 
       var self = this;
 
+      window.jqueryAurelia = jQuery;
       (0, _jquery2.default)(this.inputElement).datetimepicker({
         format: 'DD/MM/YYYY HH:mm',
         stepping: 30

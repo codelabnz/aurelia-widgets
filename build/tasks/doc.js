@@ -9,6 +9,6 @@ gulp.task('doc-generate', function(){
     .pipe(gulp.dest(paths.doc));
 });
 
-gulp.task('doc', ['doc-generate'], function(){
+gulp.task('doc', gulp.series('doc-generate', function(){
   tools.transformAPIModel(paths.doc);
-});
+}));
