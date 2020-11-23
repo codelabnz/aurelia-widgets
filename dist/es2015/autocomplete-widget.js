@@ -1,29 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.AutoCompleteWidget = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _class, _desc, _value, _class2, _descriptor;
-
-var _aureliaTemplating = require('aurelia-templating');
-
-var _aureliaBinding = require('aurelia-binding');
-
-var _aureliaDependencyInjection = require('aurelia-dependency-injection');
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-require('devbridge-autocomplete');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _initDefineProp(target, property, descriptor, context) {
   if (!descriptor) return;
@@ -34,8 +9,6 @@ function _initDefineProp(target, property, descriptor, context) {
     value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
   });
 }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -70,238 +43,220 @@ function _initializerWarningHelper(descriptor, context) {
   throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var AutoCompleteWidget = exports.AutoCompleteWidget = (_dec = (0, _aureliaDependencyInjection.inject)(Element), _dec2 = (0, _aureliaTemplating.customElement)('autocomplete-widget'), _dec3 = (0, _aureliaTemplating.bindable)({
+import { customElement, bindable } from 'aurelia-templating';
+import { bindingMode, computedFrom } from 'aurelia-binding';
+import { inject } from 'aurelia-dependency-injection';
+import $ from 'jquery';
+import 'devbridge-autocomplete';
+
+export let AutoCompleteWidget = (_dec = inject(Element), _dec2 = customElement('autocomplete-widget'), _dec3 = bindable({
   name: 'size',
   attribute: 'size',
   defaultValue: 'medium',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime
-}), _dec4 = (0, _aureliaTemplating.bindable)({
+  defaultBindingMode: bindingMode.oneTime
+}), _dec4 = bindable({
   name: 'disabled',
   attribute: 'disabled',
   defaultValue: false,
-  defaultBindingMode: _aureliaBinding.bindingMode.oneWay
-}), _dec5 = (0, _aureliaTemplating.bindable)({
+  defaultBindingMode: bindingMode.oneWay
+}), _dec5 = bindable({
   name: 'controller',
   attribute: 'controller',
-  defaultBindingMode: _aureliaBinding.bindingMode.twoWay
-}), _dec6 = (0, _aureliaTemplating.bindable)({
+  defaultBindingMode: bindingMode.twoWay
+}), _dec6 = bindable({
   name: 'selectedItem',
   attribute: 'selected-item',
-  defaultBindingMode: _aureliaBinding.bindingMode.twoWay
-}), _dec7 = (0, _aureliaTemplating.bindable)({
+  defaultBindingMode: bindingMode.twoWay
+}), _dec7 = bindable({
   name: 'placeholder',
   attribute: 'placeholder',
   defaultValue: '',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime
-}), _dec8 = (0, _aureliaTemplating.bindable)({
+  defaultBindingMode: bindingMode.oneTime
+}), _dec8 = bindable({
   name: 'customCSS',
   attribute: 'custom-css',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec9 = (0, _aureliaTemplating.bindable)({
+}), _dec9 = bindable({
   name: 'inputCustomCSS',
   attribute: 'input-custom-css',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec10 = (0, _aureliaTemplating.bindable)('title'), _dec11 = (0, _aureliaTemplating.bindable)('onenterpressed'), _dec12 = (0, _aureliaTemplating.bindable)('onblur'), _dec13 = (0, _aureliaTemplating.bindable)({
+}), _dec10 = bindable('title'), _dec11 = bindable('onenterpressed'), _dec12 = bindable('onblur'), _dec13 = bindable({
   name: 'autoSelectFirstResult',
   attribute: 'auto-select-first',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: true
-}), _dec14 = (0, _aureliaTemplating.bindable)({
+}), _dec14 = bindable({
   name: 'grabFocus',
   attribute: 'grab-focus',
   defaultValue: false
-}), _dec15 = (0, _aureliaTemplating.bindable)({
+}), _dec15 = bindable({
   name: 'labelCol',
   attribute: 'label-col',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec16 = (0, _aureliaTemplating.bindable)({
+}), _dec16 = bindable({
   name: 'noform',
   attribute: 'no-form',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
-}), _dec17 = (0, _aureliaTemplating.bindable)({
+}), _dec17 = bindable({
   name: 'triggerSelectOnValidInput',
   attribute: 'trigger-selectonvalidinput',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: true
-}), _dec18 = (0, _aureliaTemplating.bindable)({
+}), _dec18 = bindable({
   name: 'allowFreeText',
   attribute: 'allow-freetext',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: false
-}), _dec19 = (0, _aureliaTemplating.bindable)({
+}), _dec19 = bindable({
   name: 'textCol',
   attribute: 'text-col',
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime,
+  defaultBindingMode: bindingMode.oneTime,
   defaultValue: ''
-}), _dec20 = (0, _aureliaTemplating.bindable)({
+}), _dec20 = bindable({
   name: 'maxlength',
   attribute: 'maxlength',
   defaultValue: null,
-  defaultBindingMode: _aureliaBinding.bindingMode.oneTime
-}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = _dec17(_class = _dec18(_class = _dec19(_class = _dec20(_class = (_class2 = function () {
-  function AutoCompleteWidget(element) {
-    _classCallCheck(this, AutoCompleteWidget);
+  defaultBindingMode: bindingMode.oneTime
+}), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = _dec12(_class = _dec13(_class = _dec14(_class = _dec15(_class = _dec16(_class = _dec17(_class = _dec18(_class = _dec19(_class = _dec20(_class = (_class2 = class AutoCompleteWidget {
 
+  constructor(element) {
     _initDefineProp(this, 'onchange', _descriptor, this);
 
     this.element = element;
     this.showingSuggestions = false;
   }
 
-  _createClass(AutoCompleteWidget, [{
-    key: 'attached',
-    value: function attached() {
-      this.input = this.element.querySelector('input');
-      this.apply();
-    }
-  }, {
-    key: 'unbind',
-    value: function unbind() {
-      (0, _jquery2.default)(this.input).autocomplete('dispose');
-    }
-  }, {
-    key: 'apply',
-    value: function apply() {
-      this.input.value = this._formatSelectionValue(this.selectedItem);
+  attached() {
+    this.input = this.element.querySelector('input');
+    this.apply();
+  }
 
-      (0, _jquery2.default)(this.input).autocomplete({
-        lookup: this.lookup.bind(this),
-        onSelect: this.onSelect.bind(this),
-        onInvalidateSelection: this.onInvalidateSelection.bind(this),
-        beforeRender: this.suggestionsShown.bind(this),
-        onHide: this.suggestionsHidden.bind(this),
-        deferRequestBy: 200,
-        autoSelectFirst: this.autoSelectFirstResult,
-        forceFixPosition: true,
-        width: "flex",
-        triggerSelectOnValidInput: this.triggerSelectOnValidInput,
-        formatResult: this.formatResult.bind(this),
-        tabDisabled: true
+  unbind() {
+    $(this.input).autocomplete('dispose');
+  }
+
+  apply() {
+    this.input.value = this._formatSelectionValue(this.selectedItem);
+
+    $(this.input).autocomplete({
+      lookup: this.lookup.bind(this),
+      onSelect: this.onSelect.bind(this),
+      onInvalidateSelection: this.onInvalidateSelection.bind(this),
+      beforeRender: this.suggestionsShown.bind(this),
+      onHide: this.suggestionsHidden.bind(this),
+      deferRequestBy: 200,
+      autoSelectFirst: this.autoSelectFirstResult,
+      forceFixPosition: true,
+      width: "flex",
+      triggerSelectOnValidInput: this.triggerSelectOnValidInput,
+      formatResult: this.formatResult.bind(this),
+      tabDisabled: true
+    });
+    $(this.input).data('autocomplete').selection = this.selectedItem;
+  }
+
+  selectedItemChanged(newValue) {
+    if (!this.input) return;
+
+    let currentControlSelection = $(this.input).data('autocomplete').selection;
+
+    if (currentControlSelection == null && newValue == null || currentControlSelection != null && currentControlSelection.hasOwnProperty('data') && currentControlSelection.data === newValue) {
+      return;
+    }
+
+    if (newValue == null) {
+      if (!this.allowFreeText) this.input.value = '';
+      $(this.input).data('autocomplete').selection = null;
+    } else {
+      $(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
+      $(this.input).data('autocomplete').onSelect(0);
+    }
+  }
+
+  formatResult(suggestion, currentValue) {
+    if (this.controller.formatResult) return this.controller.formatResult(suggestion.data);else return this.controller.formatItem(suggestion.data);
+  }
+
+  lookup(query, done) {
+    if (query == this._formatSelectionValue(this.selectedItem)) {
+      done({
+        suggestions: [this.controller.createSuggestion(this.selectedItem)]
       });
-      (0, _jquery2.default)(this.input).data('autocomplete').selection = this.selectedItem;
+    } else {
+      this.controller.search(query).then(results => {
+        done(results);
+      });
     }
-  }, {
-    key: 'selectedItemChanged',
-    value: function selectedItemChanged(newValue) {
-      if (!this.input) return;
+  }
 
-      var currentControlSelection = (0, _jquery2.default)(this.input).data('autocomplete').selection;
+  onSelect(suggestion) {
+    this._setSelectedItem(suggestion.data);
+  }
 
-      if (currentControlSelection == null && newValue == null || currentControlSelection != null && currentControlSelection.hasOwnProperty('data') && currentControlSelection.data === newValue) {
-        return;
-      }
+  onInvalidateSelection(param) {
+    this._setSelectedItem(null);
+  }
 
-      if (newValue == null) {
-        if (!this.allowFreeText) this.input.value = '';
-        (0, _jquery2.default)(this.input).data('autocomplete').selection = null;
-      } else {
-        (0, _jquery2.default)(this.input).data('autocomplete').suggestions = [this.controller.createSuggestion(newValue)];
-        (0, _jquery2.default)(this.input).data('autocomplete').onSelect(0);
-      }
-    }
-  }, {
-    key: 'formatResult',
-    value: function formatResult(suggestion, currentValue) {
-      if (this.controller.formatResult) return this.controller.formatResult(suggestion.data);else return this.controller.formatItem(suggestion.data);
-    }
-  }, {
-    key: 'lookup',
-    value: function lookup(query, done) {
-      if (query == this._formatSelectionValue(this.selectedItem)) {
-        done({
-          suggestions: [this.controller.createSuggestion(this.selectedItem)]
-        });
-      } else {
-        this.controller.search(query).then(function (results) {
-          done(results);
-        });
+  suggestionsShown(container) {
+    this.showingSuggestions = true;
+
+    if (this.customCSS !== '') $(container)[0].classList.add(...this.customCSS.split(','));
+  }
+
+  suggestionsHidden(container) {
+    setTimeout(() => {
+      this.showingSuggestions = false;
+    }, 250);
+  }
+
+  keyUpListener(event) {
+    if (event.which === 13 && !this.showingSuggestions) {
+      if (this.onenterpressed) {
+        this.onenterpressed();
+        event.preventDefault();
       }
     }
-  }, {
-    key: 'onSelect',
-    value: function onSelect(suggestion) {
-      this._setSelectedItem(suggestion.data);
-    }
-  }, {
-    key: 'onInvalidateSelection',
-    value: function onInvalidateSelection(param) {
-      this._setSelectedItem(null);
-    }
-  }, {
-    key: 'suggestionsShown',
-    value: function suggestionsShown(container) {
-      var _$$0$classList;
+  }
 
-      this.showingSuggestions = true;
+  selectAll() {
+    this.input.select();
+  }
 
-      if (this.customCSS !== '') (_$$0$classList = (0, _jquery2.default)(container)[0].classList).add.apply(_$$0$classList, _toConsumableArray(this.customCSS.split(',')));
+  blurListener() {
+    if (this.selectedItem == null && !this.allowFreeText) {
+      this.input.value = '';
+    } else if (this.selectedItem == null && this.allowFreeText && this.input.value != null && !this.showingSuggestions) {
+      this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
     }
-  }, {
-    key: 'suggestionsHidden',
-    value: function suggestionsHidden(container) {
-      var _this = this;
 
-      setTimeout(function () {
-        _this.showingSuggestions = false;
-      }, 250);
+    if (this.onblur && !this.showingSuggestions) {
+      this.onblur();
     }
-  }, {
-    key: 'keyUpListener',
-    value: function keyUpListener(event) {
-      if (event.which === 13 && !this.showingSuggestions) {
-        if (this.onenterpressed) {
-          this.onenterpressed();
-          event.preventDefault();
-        }
-      }
-    }
-  }, {
-    key: 'selectAll',
-    value: function selectAll() {
-      this.input.select();
-    }
-  }, {
-    key: 'blurListener',
-    value: function blurListener() {
-      if (this.selectedItem == null && !this.allowFreeText) {
-        this.input.value = '';
-      } else if (this.selectedItem == null && this.allowFreeText && this.input.value != null && !this.showingSuggestions) {
-        this._setSelectedItem(this.controller.createItemFromFreeText(this.input.value));
-      }
+  }
 
-      if (this.onblur && !this.showingSuggestions) {
-        this.onblur();
-      }
+  _formatSelectionValue(selection) {
+    let selectionValue = '';
+    if (selection) {
+      selectionValue = this.controller.formatItem(selection);
     }
-  }, {
-    key: '_formatSelectionValue',
-    value: function _formatSelectionValue(selection) {
-      var selectionValue = '';
-      if (selection) {
-        selectionValue = this.controller.formatItem(selection);
-      }
-      return selectionValue;
-    }
-  }, {
-    key: '_setSelectedItem',
-    value: function _setSelectedItem(data) {
-      if (this.selectedItem === data) {
-        return;
-      }
+    return selectionValue;
+  }
 
-      this.selectedItem = data;
-      if (this.onchange) {
-        this.onchange({ selected: this.selectedItem });
-      }
+  _setSelectedItem(data) {
+    if (this.selectedItem === data) {
+      return;
     }
-  }]);
 
-  return AutoCompleteWidget;
-}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [_aureliaTemplating.bindable], {
+    this.selectedItem = data;
+    if (this.onchange) {
+      this.onchange({ selected: this.selectedItem });
+    }
+  }
+}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onchange', [bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);

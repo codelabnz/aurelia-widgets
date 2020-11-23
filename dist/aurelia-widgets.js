@@ -608,6 +608,12 @@ import 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.
   defaultValue: false,
   defaultBindingMode: bindingMode.oneWay
 })
+@bindable({
+  name: 'defaultToToday',
+  attribute: 'defaultoday',
+  defaultValue: false,
+  defaultBindingMode: bindingMode.oneWay
+})
 @inject(Element)
 export class DateTimePickerWidget {
 
@@ -638,8 +644,10 @@ export class DateTimePickerWidget {
 
     //default today's date if there is no binding value
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
-      self.dateTimeValue = moment().format();
-      self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
+      if (this.defaultToToday) {
+        self.dateTimeValue = moment().format();
+        self.dt = moment(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
+      }
     }
     //otherwise there is a value, bind to the
     else {

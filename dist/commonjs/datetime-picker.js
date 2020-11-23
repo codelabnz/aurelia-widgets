@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DateTimePickerWidget = undefined;
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _class;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _class;
 
 var _aureliaTemplating = require('aurelia-templating');
 
@@ -53,7 +53,12 @@ var DateTimePickerWidget = exports.DateTimePickerWidget = (_dec = (0, _aureliaTe
   attribute: 'disabled',
   defaultValue: false,
   defaultBindingMode: _aureliaBinding.bindingMode.oneWay
-}), _dec10 = (0, _aureliaDependencyInjection.inject)(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = function () {
+}), _dec10 = (0, _aureliaTemplating.bindable)({
+  name: 'defaultToToday',
+  attribute: 'defaultoday',
+  defaultValue: false,
+  defaultBindingMode: _aureliaBinding.bindingMode.oneWay
+}), _dec11 = (0, _aureliaDependencyInjection.inject)(Element), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = _dec5(_class = _dec6(_class = _dec7(_class = _dec8(_class = _dec9(_class = _dec10(_class = _dec11(_class = function () {
   function DateTimePickerWidget(element) {
     _classCallCheck(this, DateTimePickerWidget);
 
@@ -81,8 +86,10 @@ var DateTimePickerWidget = exports.DateTimePickerWidget = (_dec = (0, _aureliaTe
     });
 
     if (this.dateTimeValue === '' || this.dateTimeValue == null || this.dateTimeValue == undefined) {
-      self.dateTimeValue = (0, _moment2.default)().format();
-      self.dt = (0, _moment2.default)(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
+      if (this.defaultToToday) {
+        self.dateTimeValue = (0, _moment2.default)().format();
+        self.dt = (0, _moment2.default)(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
+      }
     } else {
         self.dt = (0, _moment2.default)(self.dateTimeValue).format('DD/MM/YYYY HH:mm');
       }
@@ -105,4 +112,4 @@ var DateTimePickerWidget = exports.DateTimePickerWidget = (_dec = (0, _aureliaTe
   };
 
   return DateTimePickerWidget;
-}()) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
+}()) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class) || _class);
